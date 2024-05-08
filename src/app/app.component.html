@@ -1,0 +1,41 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item href="./upload-document">
+        <mat-icon mat-list-icon>upload</mat-icon>
+        <span mat-line>Upload Documents</span>
+      </a>
+      <a mat-list-item href="./search-document">
+        <mat-icon mat-list-icon>search</mat-icon>
+        <span mat-line>Search Results</span>
+      </a>
+      <a mat-list-item href="./">
+        <mat-icon mat-list-icon>person</mat-icon>
+        <span mat-line>Your Voice Command</span>
+      </a>
+      <!-- <a mat-list-item href="https://github.com/luixaviles/web-speech-angular" target="_blank">
+        <mat-icon mat-list-icon>code</mat-icon>
+        <span mat-line>Source Code</span>
+      </a>
+      <a mat-list-item href="https://luixaviles.com/2020/07/build-your-first-voice-driven-web-app/" target="_blank">
+        <mat-icon mat-list-icon>web</mat-icon>
+        <span mat-line>Blog Post</span>
+      </a> -->
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Voice-Driven Web Application</span>
+      <span class="fill-space"></span>
+      <button mat-icon-button (click)="openHelp()">
+        <mat-icon>help</mat-icon>
+      </button>
+    </mat-toolbar>
+  </div>
+
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

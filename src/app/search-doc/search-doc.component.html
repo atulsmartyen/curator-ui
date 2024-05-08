@@ -1,0 +1,16 @@
+<section>
+  <div class="serach-controls">
+    <mat-form-field>
+      <mat-label>Enter Prompt to search inside document</mat-label>
+      <input matInput [(ngModel)]="searchText" placeholder="Enter document name" />    
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onSearch()">Search</button>
+  </div>
+  <mat-card *ngFor="let item of (searchedItems | async)">
+    <mat-card-title>{{ item.title }}</mat-card-title>
+    <mat-card-subtitle>{{ item.subtitle }}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ item.description }}</p>
+    </mat-card-content>
+  </mat-card>
+</section>

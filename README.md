@@ -1,55 +1,32 @@
-# Angular basic
+# A Voice-Driven Web AI Search Application
 
-[Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/overview) allows you to easily build [Angular](https://angular.io/) apps in minutes. Use this repo with the [Angular quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=angular) to build and customize a new static site.
+This project has been implemented entirely using the `TypeScript` language.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
-
-## Project setup
-
-```bash
-npm install
-```
-
-### Start the dev server
+## Clone repository
+In order to start the project use:
 
 ```bash
-npm run swa:start
+$ git clone https://github.com/padu/voice-based-search.git
+$ cd web-speech-angular
 ```
 
-> Note: This command will use the local configuration file `swa-cli.config.json`.
-
-### Run unit tests
+## Preview the Application
+Open other command line window and run following commands:
 
 ```bash
-npm test
+$ cd client
+$ npm install
+$ ng serve -o
 ```
 
-### Run e2e tests
+The last command will open your default browser with the following URL by default: [http://localhost:4200](http://localhost:4200/)
 
-```bash
-npm run e2e
-```
+## Forks
+The Open Source community is awesome! If you're working in a fork with other tech stack, please add the reference of your project here.
 
-### Lints and fixes files
+## Contribution
+Contributions are greatly appreciated. You can contribute by adding `i18n` support with your language, the testing section or any other feature you want.
 
-```bash
-npm run lint
-```
+## License
 
-### Compiles and minifies for production
-
-```bash
-npm run build
-```
-
-### Login to Azure
-
-```bash
-npm run swa:login
-```
-
-### Deploy to Azure
-
-```bash
-npm run swa:deploy
-```
+MIT
