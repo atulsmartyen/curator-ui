@@ -6,8 +6,8 @@ This project has been implemented entirely using the `TypeScript` language.
 In order to start the project use:
 
 ```bash
-$ git clone https://github.com/padu/voice-based-search.git
-$ cd web-speech-angular
+$ git clone https://github.com/atulsmartyen/curator-ui.git
+$ cd curator-ui
 ```
 
 ## Preview the Application
