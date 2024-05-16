@@ -39,17 +39,17 @@ export class SearchDocComponent implements OnInit {
         }));
 
     this.searchedVideoItems = this.searchVideoItemsBasedOnPrompt(this.searchText)
-    .pipe(
-      map((data: any) => {
-        return (Object.values(data?.results[0]?.searchMatches[0]) as Array<SearchVideoItem[]>)
-          .flat()
-          .map((item: SearchVideoItem) => ({
-            title: item.type,
-            subtitle: `Page: ${item.startTime}`,
-            description: item.text
+      .pipe(
+        map((data: any) => {
+          return JSON.parse(data).results.map((item: SearchVideoItem) => {
+              return {
+                title: item.name,
+                subtitle: `Acc ID: ${item.accountId}`,
+                description: item.searchMatches.map(match=>match.startTime).join(', ')
+            };
           })
-        );
-      }));
+        })
+      );
   }
 
   searchItemsBasedOnPrompt(prompt: string) {

@@ -11,9 +11,15 @@ export interface SearchItem {
 }
 
 export interface SearchVideoItem {
-  text: string,
+  accountId: string,
+  name: string,
+  searchMatches: SearchMatch[]
+}
+
+export interface SearchMatch {
   startTime: string,
-  type: string
+  type: string,
+  text: string
 }
 
 @Injectable({
@@ -21,7 +27,7 @@ export interface SearchVideoItem {
 })
 export class SearchService {
   private apiUrl = 'https://func-curatorai.azurewebsites.net/query-prompt-docs?prompt=';
-  private videoAPIurl = 'https://func-curatorai.azurewebsites.net/promptToVideo?prompt=';
+  private videoAPIurl = 'https://func-curatorai.azurewebsites.net/query-prompt-videos?prompt=';
 
   constructor(private http: HttpClient) { }
 
