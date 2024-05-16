@@ -10,15 +10,26 @@ export interface SearchItem {
     }
 }
 
+export interface SearchVideoItem {
+  text: string,
+  startTime: string,
+  type: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
   private apiUrl = 'https://func-curatorai.azurewebsites.net/query-prompt-docs?prompt=';
+  private videoAPIurl = 'https://func-curatorai.azurewebsites.net/promptToVideo?prompt=';
 
   constructor(private http: HttpClient) { }
 
   search(prompt: string) {
     return this.http.get(this.apiUrl + prompt, {});
+  }
+
+  searchVideos(prompt: string) {
+    return this.http.get(this.videoAPIurl + prompt, {});
   }
 }

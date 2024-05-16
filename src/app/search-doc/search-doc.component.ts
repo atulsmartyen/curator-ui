@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SearchItem, SearchService } from './services/search.service';
+import { SearchItem, SearchVideoItem, SearchService } from './services/search.service';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -13,6 +13,7 @@ import { map } from 'rxjs/operators';
 export class SearchDocComponent implements OnInit {
   searchText: string = '';
   searchedItems: Observable<any[] | undefined> = of([]);
+  searchedVideoItems: Observable<any[] | undefined> = of([]);
 
   constructor(private route: ActivatedRoute, private searchService: SearchService) { }
 
@@ -36,9 +37,26 @@ export class SearchDocComponent implements OnInit {
             })
           );
         }));
+
+    this.searchedVideoItems = this.searchVideoItemsBasedOnPrompt(this.searchText)
+    .pipe(
+      map((data: any) => {
+        return (Object.values(data?.results[0]?.searchMatches[0]) as Array<SearchVideoItem[]>)
+          .flat()
+          .map((item: SearchVideoItem) => ({
+            title: item.type,
+            subtitle: `Page: ${item.startTime}`,
+            description: item.text
+          })
+        );
+      }));
   }
 
   searchItemsBasedOnPrompt(prompt: string) {
     return this.searchService.search(prompt);
+  }
+
+  searchVideoItemsBasedOnPrompt(prompt: string) {
+    return this.searchService.searchVideos(prompt);
   }
 }

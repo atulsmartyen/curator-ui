@@ -1,5 +1,5 @@
 <section>
-  <mat-form-field>
+  <!-- <mat-form-field>
     <mat-label>Upload Document Type</mat-label>
     <mat-select [(value)]="currentDocument">
       <mat-option
@@ -9,6 +9,6 @@
         {{document}}
       </mat-option>
     </mat-select>
-  </mat-form-field>
-  <input multiple type="file" />
+  </mat-form-field> -->
+  <input #fileUpload type="file" (change)="uploadFile($event)">
 </section>

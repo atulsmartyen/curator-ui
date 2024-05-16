@@ -11,6 +11,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [],
@@ -25,7 +27,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSelectModule,
     MatListModule,
     MatSidenavModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule
   ],
   exports: [
     CommonModule,
@@ -38,7 +41,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSelectModule,
     MatListModule,
     MatSidenavModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule,
+    MatTabsModule
   ],
 })
 export class MaterialModule { }
