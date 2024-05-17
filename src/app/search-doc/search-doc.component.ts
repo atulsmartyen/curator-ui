@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SearchItem, SearchVideoItem, SearchService } from './services/search.service';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -15,7 +15,12 @@ export class SearchDocComponent implements OnInit {
   searchedItems: Observable<any[] | undefined> = of([]);
   searchedVideoItems: Observable<any[] | undefined> = of([]);
 
-  constructor(private route: ActivatedRoute, private searchService: SearchService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private searchService: SearchService) {
+      
+    }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -50,6 +55,10 @@ export class SearchDocComponent implements OnInit {
           })
         })
       );
+  }
+
+  navigateToVideoPlayer(accountId: string, videoId: string) {
+    this.router.navigate(['/video-player', accountId, videoId]);
   }
 
   searchItemsBasedOnPrompt(prompt: string) {

@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { WebSpeechComponent } from './web-speech/web-speech.component';
 import { UploadDocComponent } from './upload-doc/upload-doc.component';
 import { SearchDocComponent } from './search-doc/search-doc.component';
-
+import { VideoPlayerComponent } from './video-player/video-player.component';
 
 const routes: Routes = [{
     path: '',
@@ -20,6 +20,10 @@ const routes: Routes = [{
   },{
     path: 'upload-document',
     component: UploadDocComponent,
+    pathMatch: 'full'
+  },{
+    path: 'video-player/:accountId/:videoId',
+    component: VideoPlayerComponent,
     pathMatch: 'full'
   },{
     path: '**',

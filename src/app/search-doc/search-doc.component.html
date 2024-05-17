@@ -19,7 +19,7 @@
       </ng-template>
     </mat-tab>
     <mat-tab label="Videos">
-      <mat-card *ngFor="let item of (searchedVideoItems | async)">
+      <mat-card *ngFor="let item of (searchedVideoItems | async)" (click)="navigateToVideoPlayer(item.accountId, item.videoId)">
         <mat-card-title>{{ item.title }}</mat-card-title>
         <mat-card-subtitle>{{ item.subtitle }}</mat-card-subtitle>
         <mat-card-content>
