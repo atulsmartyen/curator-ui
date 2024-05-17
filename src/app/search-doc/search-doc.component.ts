@@ -50,6 +50,8 @@ export class SearchDocComponent implements OnInit {
               return {
                 title: item.name,
                 subtitle: `Acc ID: ${item.accountId}`,
+                videoId: item.thumbnailVideoId,
+                accountId: item.accountId,
                 description: item.searchMatches.map(match=>match.startTime).join(', ')
             };
           })
